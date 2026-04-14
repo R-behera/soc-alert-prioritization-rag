@@ -1,0 +1,46 @@
+{
+  "slug": "soc-alert-prioritization-rag",
+  "title": "SOC Alert Prioritization RAG",
+  "project_type": "rag",
+  "domain": "Security Operations",
+  "summary": "Ground SOC triage on runbooks, detections, and enrichment notes for faster analyst decisions.",
+  "tags": [
+    "soc",
+    "triage",
+    "rag"
+  ],
+  "accent": "#264653",
+  "dashboard_metrics": [
+    {
+      "label": "Grounded Recall",
+      "value": "85%",
+      "delta": "+4.6%"
+    },
+    {
+      "label": "Citation Coverage",
+      "value": "86%",
+      "delta": "+3.1%"
+    },
+    {
+      "label": "Latency",
+      "value": "147ms",
+      "delta": "-18ms"
+    }
+  ],
+  "sample_features": {
+    "query": "Summarize the highest priority risk and recommended next step.",
+    "audience": "ops"
+  },
+  "sample_metrics": {
+    "acquisition": 33.9,
+    "activation": 35.5,
+    "retention": 48.8,
+    "revenue": 76.3
+  },
+  "knowledge_base": [
+    "SOC Alert Prioritization RAG is positioned as a Security Operations starter that emphasizes fast iteration, clear documentation, and production-friendly interfaces.",
+    "The primary value proposition is: Ground SOC triage on runbooks, detections, and enrichment notes for faster analyst decisions.",
+    "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.",
+    "Typical stakeholders include analytics, operations, product, and leadership teams working on soc, triage, rag."
+  ]
+}
