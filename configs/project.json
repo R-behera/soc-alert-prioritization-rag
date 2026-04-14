@@ -9,7 +9,8 @@
     "triage",
     "rag"
   ],
-  "accent": "#264653",
+  "accent": "#6d2cc8",
+  "secondary_accent": "#2ca947",
   "dashboard_metrics": [
     {
       "label": "Grounded Recall",
@@ -42,5 +43,52 @@
     "The primary value proposition is: Ground SOC triage on runbooks, detections, and enrichment notes for faster analyst decisions.",
     "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.",
     "Typical stakeholders include analytics, operations, product, and leadership teams working on soc, triage, rag."
+  ],
+  "app_archetype": "watchtower",
+  "ui_profile": {
+    "layout": "rail",
+    "surface": "ink",
+    "font_stack": "\"Manrope\", \"Segoe UI\", sans-serif",
+    "radius": 25,
+    "shadow": 55,
+    "eyebrow_style": "soft",
+    "module_columns": 3,
+    "hero_align": "center",
+    "headline_mode": "tall"
+  },
+  "app_modules": [
+    {
+      "label": "Signal 01",
+      "title": "Incident Prioritizer",
+      "description": "Simulate how incoming events are scored before they hit an operator queue.",
+      "endpoint": "/score",
+      "input_mode": "json",
+      "cta": "Prioritize",
+      "prefill": "{\n  \"features\": {\n    \"query\": \"Summarize the highest priority risk and recommended next step.\",\n    \"audience\": \"ops\"\n  }\n}",
+      "hint": "Risk band and top signals will appear here.",
+      "span": "normal"
+    },
+    {
+      "label": "Signal 02",
+      "title": "Alert Delta Review",
+      "description": "Compare current operating metrics with a baseline to explain what changed.",
+      "endpoint": "/analyze",
+      "input_mode": "json",
+      "cta": "Compare Signals",
+      "prefill": "{\n  \"metrics\": {\n    \"acquisition\": 33.9,\n    \"activation\": 35.5,\n    \"retention\": 48.8,\n    \"revenue\": 76.3\n  },\n  \"baseline\": {\n    \"acquisition\": 31.19,\n    \"activation\": 32.66,\n    \"retention\": 44.9,\n    \"revenue\": 70.2\n  }\n}",
+      "hint": "Operational movement summary will appear here.",
+      "span": "normal"
+    },
+    {
+      "label": "Signal 03",
+      "title": "Triage Playbook",
+      "description": "Generate an action-oriented response plan for the next incident handling step.",
+      "endpoint": "/recommend",
+      "input_mode": "json",
+      "cta": "Build Playbook",
+      "prefill": "{\n  \"prompt\": \"Recommend the next best action for SOC Alert Prioritization RAG.\",\n  \"features\": {\n    \"query\": \"Summarize the highest priority risk and recommended next step.\",\n    \"audience\": \"ops\"\n  },\n  \"metrics\": {\n    \"acquisition\": 33.9,\n    \"activation\": 35.5,\n    \"retention\": 48.8,\n    \"revenue\": 76.3\n  }\n}",
+      "hint": "Suggested next actions and rationale will appear here.",
+      "span": "wide"
+    }
   ]
 }

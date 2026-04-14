@@ -6,13 +6,12 @@
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <title>SOC Alert Prioritization RAG</title>
           <link rel="stylesheet" href="./styles.css">
-          <style>:root { --accent: #264653; }</style>
         </head>
-        <body>
-          <div class="page">
+        <body class="surface-ink">
+          <div class="page layout-rail eyebrow-soft headline-tall modules-3 hero-align-center">
             <section class="hero">
               <div class="panel hero-copy">
-                <span class="eyebrow">Grounded Retrieval App</span>
+                <span class="eyebrow" data-health>Signal Watchtower</span>
                 <h1 id="project-title">SOC Alert Prioritization RAG</h1>
                 <p id="project-summary" class="lead">Ground SOC triage on runbooks, detections, and enrichment notes for faster analyst decisions.</p>
                 <ul id="project-tags" class="tag-list">
@@ -26,55 +25,84 @@
 <article class='card'><span>Latency</span><strong>147ms</strong><em>-18ms</em></article>
                 </div>
                 <div class="mini-grid">
-                  <article class='mini-card'><span>Project Type</span><strong>RAG</strong></article><article class='mini-card'><span>Domain</span><strong>Security Operations</strong></article><article class='mini-card'><span>Interface</span><strong>FastAPI + Browser UI</strong></article><article class='mini-card'><span>Deployment</span><strong>Docker + CI</strong></article>
+                  <article class='mini-card'><span>Project Type</span><strong>RAG</strong></article><article class='mini-card'><span>Domain</span><strong>Security Operations</strong></article><article class='mini-card'><span>Application</span><strong>Signal Watchtower</strong></article><article class='mini-card'><span>Deployment</span><strong>Docker + CI</strong></article>
                 </div>
               </div>
             </section>
             <section class="app-grid">
-              <article class="panel module">
-                <div class="module-header">
-                  <span>Application 01</span>
-                  <h2>Retrieval Inputs</h2>
-                  <p>Use the feature payload to simulate request enrichment or ranking inputs.</p>
-                </div>
-                <textarea id="score-input"></textarea>
-                <div class="button-row">
-                  <button id="run-score">Run Scoring</button>
-                  <button id="load-defaults" class="secondary" type="button">Reload Defaults</button>
-                </div>
-                <pre id="score-output"></pre>
-              </article>
-              <article class="panel module">
-                <div class="module-header">
-                  <span>Application 02</span>
-                  <h2>Retrieval Review</h2>
-                  <p>Compare retrieval metrics or answer quality signals against a baseline.</p>
-                </div>
-                <textarea id="analyze-input"></textarea>
-                <div class="button-row">
-                  <button id="run-analyze">Run Analysis</button>
-                </div>
-                <pre id="analyze-output"></pre>
-              </article>
-              <article class="panel module">
-                <div class="module-header">
-                  <span>Application 03</span>
-                  <h2>Grounded Query</h2>
-                  <p>Run a grounded question across the local knowledge base and inspect contexts.</p>
-                </div>
-                <textarea id="query-input" class="query-input"></textarea>
-                <div class="button-row">
-                  <button id="run-query">Run Query</button>
-                </div>
-                <pre id="query-output"></pre>
-              </article>
+              <article class="panel module js-module span-normal">
+          <div class="module-header">
+            <span>Signal 01</span>
+            <h2>Incident Prioritizer</h2>
+            <p>Simulate how incoming events are scored before they hit an operator queue.</p>
+          </div>
+          <textarea class="js-input">{
+  &quot;features&quot;: {
+    &quot;query&quot;: &quot;Summarize the highest priority risk and recommended next step.&quot;,
+    &quot;audience&quot;: &quot;ops&quot;
+  }
+}</textarea>
+          <div class="button-row">
+            <button class="js-run" data-endpoint="/score" data-input-mode="json">Prioritize</button>
+          </div>
+          <pre class="js-output">Risk band and top signals will appear here.</pre>
+        </article>
+<article class="panel module js-module span-normal">
+          <div class="module-header">
+            <span>Signal 02</span>
+            <h2>Alert Delta Review</h2>
+            <p>Compare current operating metrics with a baseline to explain what changed.</p>
+          </div>
+          <textarea class="js-input">{
+  &quot;metrics&quot;: {
+    &quot;acquisition&quot;: 33.9,
+    &quot;activation&quot;: 35.5,
+    &quot;retention&quot;: 48.8,
+    &quot;revenue&quot;: 76.3
+  },
+  &quot;baseline&quot;: {
+    &quot;acquisition&quot;: 31.19,
+    &quot;activation&quot;: 32.66,
+    &quot;retention&quot;: 44.9,
+    &quot;revenue&quot;: 70.2
+  }
+}</textarea>
+          <div class="button-row">
+            <button class="js-run" data-endpoint="/analyze" data-input-mode="json">Compare Signals</button>
+          </div>
+          <pre class="js-output">Operational movement summary will appear here.</pre>
+        </article>
+<article class="panel module js-module span-wide">
+          <div class="module-header">
+            <span>Signal 03</span>
+            <h2>Triage Playbook</h2>
+            <p>Generate an action-oriented response plan for the next incident handling step.</p>
+          </div>
+          <textarea class="js-input">{
+  &quot;prompt&quot;: &quot;Recommend the next best action for SOC Alert Prioritization RAG.&quot;,
+  &quot;features&quot;: {
+    &quot;query&quot;: &quot;Summarize the highest priority risk and recommended next step.&quot;,
+    &quot;audience&quot;: &quot;ops&quot;
+  },
+  &quot;metrics&quot;: {
+    &quot;acquisition&quot;: 33.9,
+    &quot;activation&quot;: 35.5,
+    &quot;retention&quot;: 48.8,
+    &quot;revenue&quot;: 76.3
+  }
+}</textarea>
+          <div class="button-row">
+            <button class="js-run" data-endpoint="/recommend" data-input-mode="json">Build Playbook</button>
+          </div>
+          <pre class="js-output">Suggested next actions and rationale will appear here.</pre>
+        </article>
             </section>
             <footer class="footer">
-              <span>Data Science + AI + LLM + RAG Portfolio</span>
+              <span>Security Operations • RAG • Signal Watchtower</span>
               <span>soc-alert-prioritization-rag</span>
             </footer>
           </div>
-          <script id="bootstrap-data" type="application/json">{"project": {"slug": "soc-alert-prioritization-rag", "title": "SOC Alert Prioritization RAG", "project_type": "rag", "domain": "Security Operations", "summary": "Ground SOC triage on runbooks, detections, and enrichment notes for faster analyst decisions.", "tags": ["soc", "triage", "rag"]}, "sample_features": {"query": "Summarize the highest priority risk and recommended next step.", "audience": "ops"}, "sample_metrics": {"acquisition": 33.9, "activation": 35.5, "retention": 48.8, "revenue": 76.3}, "sample_query": "What is the top priority recommendation?", "knowledge_base": ["SOC Alert Prioritization RAG is positioned as a Security Operations starter that emphasizes fast iteration, clear documentation, and production-friendly interfaces.", "The primary value proposition is: Ground SOC triage on runbooks, detections, and enrichment notes for faster analyst decisions.", "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.", "Typical stakeholders include analytics, operations, product, and leadership teams working on soc, triage, rag."], "dashboard_metrics": [{"label": "Grounded Recall", "value": "85%", "delta": "+4.6%"}, {"label": "Citation Coverage", "value": "86%", "delta": "+3.1%"}, {"label": "Latency", "value": "147ms", "delta": "-18ms"}]}</script>
+          <script id="bootstrap-data" type="application/json">{"project": {"slug": "soc-alert-prioritization-rag", "title": "SOC Alert Prioritization RAG", "project_type": "rag", "domain": "Security Operations", "summary": "Ground SOC triage on runbooks, detections, and enrichment notes for faster analyst decisions.", "tags": ["soc", "triage", "rag"]}, "app_archetype": "watchtower", "ui_profile": {"layout": "rail", "surface": "ink", "font_stack": "\"Manrope\", \"Segoe UI\", sans-serif", "radius": 25, "shadow": 55, "eyebrow_style": "soft", "module_columns": 3, "hero_align": "center", "headline_mode": "tall"}, "app_modules": [{"label": "Signal 01", "title": "Incident Prioritizer", "description": "Simulate how incoming events are scored before they hit an operator queue.", "endpoint": "/score", "input_mode": "json", "cta": "Prioritize", "prefill": "{\n  \"features\": {\n    \"query\": \"Summarize the highest priority risk and recommended next step.\",\n    \"audience\": \"ops\"\n  }\n}", "hint": "Risk band and top signals will appear here.", "span": "normal"}, {"label": "Signal 02", "title": "Alert Delta Review", "description": "Compare current operating metrics with a baseline to explain what changed.", "endpoint": "/analyze", "input_mode": "json", "cta": "Compare Signals", "prefill": "{\n  \"metrics\": {\n    \"acquisition\": 33.9,\n    \"activation\": 35.5,\n    \"retention\": 48.8,\n    \"revenue\": 76.3\n  },\n  \"baseline\": {\n    \"acquisition\": 31.19,\n    \"activation\": 32.66,\n    \"retention\": 44.9,\n    \"revenue\": 70.2\n  }\n}", "hint": "Operational movement summary will appear here.", "span": "normal"}, {"label": "Signal 03", "title": "Triage Playbook", "description": "Generate an action-oriented response plan for the next incident handling step.", "endpoint": "/recommend", "input_mode": "json", "cta": "Build Playbook", "prefill": "{\n  \"prompt\": \"Recommend the next best action for SOC Alert Prioritization RAG.\",\n  \"features\": {\n    \"query\": \"Summarize the highest priority risk and recommended next step.\",\n    \"audience\": \"ops\"\n  },\n  \"metrics\": {\n    \"acquisition\": 33.9,\n    \"activation\": 35.5,\n    \"retention\": 48.8,\n    \"revenue\": 76.3\n  }\n}", "hint": "Suggested next actions and rationale will appear here.", "span": "wide"}], "sample_features": {"query": "Summarize the highest priority risk and recommended next step.", "audience": "ops"}, "sample_metrics": {"acquisition": 33.9, "activation": 35.5, "retention": 48.8, "revenue": 76.3}, "knowledge_base": ["SOC Alert Prioritization RAG is positioned as a Security Operations starter that emphasizes fast iteration, clear documentation, and production-friendly interfaces.", "The primary value proposition is: Ground SOC triage on runbooks, detections, and enrichment notes for faster analyst decisions.", "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.", "Typical stakeholders include analytics, operations, product, and leadership teams working on soc, triage, rag."], "dashboard_metrics": [{"label": "Grounded Recall", "value": "85%", "delta": "+4.6%"}, {"label": "Citation Coverage", "value": "86%", "delta": "+3.1%"}, {"label": "Latency", "value": "147ms", "delta": "-18ms"}]}</script>
           <script src="./app.js"></script>
         </body>
         </html>
